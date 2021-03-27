@@ -6,7 +6,5 @@
     <authors>AlphaTrust Corporation</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>AlphaTrust.Utility</description>
-    <version>4.1.5.6</version>
-    <copyright>©2021 AlphaTrust Corporation</copyright>
   </metadata>
 </package>
