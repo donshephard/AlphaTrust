@@ -11,7 +11,7 @@ $assemblyVersion.InnerXml = $version;
 $assemblyCompany = $project.CreateElement('AssemblyCompany');
 $assemblyCompany.InnerXml = 'AlphaTrust Corporation';
 
-;
+$year = Get-Date -Format yyyy;
 $assemblyCopyright = $project.CreateElement('AssemblyCopyright');
 $assemblyCopyright.InnerXml = [char]0x00A9 + "$year AlphaTrust Corporation";
 
