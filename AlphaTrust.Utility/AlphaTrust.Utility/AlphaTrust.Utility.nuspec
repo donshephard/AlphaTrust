@@ -7,4 +7,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>AlphaTrust.Utility</description>
   </metadata>
-</package>
+  <files>
+    <file src="AlphaTrust.Utility.dll" target="lib\net48\" />
+  </files></package>
