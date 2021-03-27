@@ -8,5 +8,6 @@
     <description>AlphaTrust.Utility</description>
   </metadata>
   <files>
-    <file src="AlphaTrust.Utility.dll" target="lib\net48\" />
-  </files></package>
+    <file src="bin\Release\net48\AlphaTrust.Utility.dll" target="lib\net48\" />
+  </files>
+</package>
