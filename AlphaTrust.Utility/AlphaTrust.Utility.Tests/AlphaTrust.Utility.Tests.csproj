@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyTitle>AlphaTrust.Utility.Tests</AssemblyTitle>
+    <Product>AlphaTrust.Utility.Tests</Product>
+    <IsPackable>false</IsPackable>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <Target Name="DisableAnalyzersForVisualStudioBuild" BeforeTargets="CoreCompile">
+    <ItemGroup>
+      <Analyzer Remove="@(Analyzer)" />
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.9.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaTrust.Utility\AlphaTrust.Utility.csproj" />
+  </ItemGroup>
+
+</Project>

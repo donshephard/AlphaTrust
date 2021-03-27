@@ -1,0 +1,8 @@
+C:\_donshephard\AlphaTrust\AlphaTrust.Utility\AlphaTrust.Utility\bin\Debug\net48\AlphaTrust.Utility.dll
+C:\_donshephard\AlphaTrust\AlphaTrust.Utility\AlphaTrust.Utility\bin\Debug\net48\AlphaTrust.Utility.pdb
+C:\_donshephard\AlphaTrust\AlphaTrust.Utility\AlphaTrust.Utility\obj\Debug\net48\AlphaTrust.Utility.csprojAssemblyReference.cache
+C:\_donshephard\AlphaTrust\AlphaTrust.Utility\AlphaTrust.Utility\obj\Debug\net48\AlphaTrust.Utility.AssemblyInfoInputs.cache
+C:\_donshephard\AlphaTrust\AlphaTrust.Utility\AlphaTrust.Utility\obj\Debug\net48\AlphaTrust.Utility.AssemblyInfo.cs
+C:\_donshephard\AlphaTrust\AlphaTrust.Utility\AlphaTrust.Utility\obj\Debug\net48\AlphaTrust.Utility.csproj.CoreCompileInputs.cache
+C:\_donshephard\AlphaTrust\AlphaTrust.Utility\AlphaTrust.Utility\obj\Debug\net48\AlphaTrust.Utility.dll
+C:\_donshephard\AlphaTrust\AlphaTrust.Utility\AlphaTrust.Utility\obj\Debug\net48\AlphaTrust.Utility.pdb
