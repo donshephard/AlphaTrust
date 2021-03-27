@@ -1,0 +1,21 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+bin
+obj
+packages
+node_modules
+
+.vs
+*.suo
+*.user
+*.bak
+*.DotSettings
+*.log
+ 
+# VB6 User-specific files
+*.vbw
+*.tmp
+*.oca
+*.exe
