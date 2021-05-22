@@ -39,8 +39,5 @@ jobs:
     - name: Run tests
       run: dotnet test 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' --configuration Release --no-restore --no-build --verbosity normal
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: 'AlphaTrust.Nuget'
-        path: AlphaTrust.NuGet\AlphaTrust.NuGet\bin\Release\AlphaTrust.NuGet.*.nupkg
+    - name: NuGet Push
+      run: dotnet nuget push AlphaTrust.NuGet/**/*.nupkg --source 'https://nuget.pkg.github.com/donshephard/index.json' --skip-duplicate
