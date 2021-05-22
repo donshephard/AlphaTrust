@@ -37,4 +37,4 @@ jobs:
       run: msbuild 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' /p:Configuration=Release
       
     - name: Run tests
-      run: dotnet test $SOLUTION --no-restore --no-build --verbosity normal
+      run: dotnet test 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' --no-restore --no-build --verbosity normal
