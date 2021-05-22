@@ -30,7 +30,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1
       
     - name: Restore NuGet packages
-      run: nuget restore $SOLUTION
+      run: nuget restore 'AlphaTrust.NuGet'
       
     - name: Build AlphaTrust.NuGet
       run: msbuild $SOLUTION /p:Configuration=Release
