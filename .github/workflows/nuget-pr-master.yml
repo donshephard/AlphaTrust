@@ -17,7 +17,15 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Preparing...
+      run: |
+        echo "::set-env name=SOLITION::AlphaTrust.NuGet\AlphaTrust.NuGet.sln"
+        echo "::set-env name=SOLUTION_FOLDER::AlphaTrust.NuGet"
+        echo "::set-env name=CONFIG::Release"
+        echo "::set-env name=NUGET_URL::https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+
+    - name: Checkout
+      uses: actions/checkout@v2
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
@@ -34,10 +42,10 @@ jobs:
       run: nuget restore 'AlphaTrust.NuGet'
 
     - name: Build AlphaTrust.NuGet
-      run: msbuild 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' /p:Configuration=Release
+      run: msbuild 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' /p:Configuration=${{ env.CONFIG }}
 
     - name: Run tests
-      run: dotnet test 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' --configuration Release --no-restore --no-build --verbosity normal
+      run: dotnet test 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' --configuration ${{ env.CONFIG }} --no-restore --no-build --verbosity normal
 
     - name: NuGet Push
       run: dotnet nuget push AlphaTrust.NuGet/**/*.nupkg --source 'https://nuget.pkg.github.com/donshephard/index.json' --skip-duplicate
