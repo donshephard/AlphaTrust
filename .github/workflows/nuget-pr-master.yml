@@ -16,10 +16,6 @@ jobs:
   alphatrust-nuget:
     runs-on: windows-latest
 
-    env:
-      BUILD_CONFIG: 'Release'
-      SOLUTION: 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln'
-
     steps:
     - uses: actions/checkout@v2
 
@@ -33,4 +29,4 @@ jobs:
       run: nuget restore 'AlphaTrust.NuGet'
       
     - name: Build AlphaTrust.NuGet
-      run: msbuild $SOLUTION /p:Configuration=Release
+      run: msbuild 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' /p:Configuration=Release
