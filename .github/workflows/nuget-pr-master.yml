@@ -13,27 +13,12 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  changes:
-    runs-on: ubuntu-latest
-    
-    outputs:
-      alphatrust-nuget: ${{ steps.filter.outputs.nuget }}
-    steps:
-    # For pull requests it's not necessary to checkout the code
-    - uses: dorny/paths-filter@v2
-      id: filter
-      with:
-        filters: |
-          nuget:
-            - 'AlphaTrust.Nuget/**'
-
   alphatrust-nuget:
-    needs: changes
+    runs-on: windows-latest
+
     env:
       BUILD_CONFIG: 'Release'
       SOLUTION: 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln'
-
-    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
