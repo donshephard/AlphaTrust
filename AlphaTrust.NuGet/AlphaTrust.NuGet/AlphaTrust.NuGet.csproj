@@ -6,5 +6,6 @@
     <AssemblyTitle>AlphaTrust.NuGet</AssemblyTitle>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 </Project>
