@@ -32,7 +32,7 @@ jobs:
       BUILD_CONFIG: 'Release'
       SOLUTION: 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln'
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -52,4 +52,4 @@ jobs:
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
 
     - name: Run tests
-      run: dotnet test /p:Configuration=$env:BUILD_CONFIG --no-restore --no-build --verbosity normal
+      run: dotnet test $SOLUTION --no-restore --no-build --verbosity normal
