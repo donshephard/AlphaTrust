@@ -15,14 +15,13 @@ on:
 jobs:
   alphatrust-nuget:
     runs-on: windows-latest
+    env:
+      SOLUTION: AlphaTrust.NuGet\AlphaTrust.NuGet.sln
+      SOLUTION_FOLDER: AlphaTrust.NuGet
+      CONFIG: Release
+      NUGET_URL: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
 
     steps:
-    - name: Preparing...
-      run: |
-        echo "::set-env name=SOLITION::AlphaTrust.NuGet\AlphaTrust.NuGet.sln"
-        echo "::set-env name=SOLUTION_FOLDER::AlphaTrust.NuGet"
-        echo "::set-env name=CONFIG::Release"
-        echo "::set-env name=NUGET_URL::https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
 
     - name: Checkout
       uses: actions/checkout@v2
