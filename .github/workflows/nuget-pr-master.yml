@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -29,12 +29,18 @@ jobs:
 
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
-      
+
     - name: Restore NuGet packages
       run: nuget restore 'AlphaTrust.NuGet'
-      
+
     - name: Build AlphaTrust.NuGet
       run: msbuild 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' /p:Configuration=Release
-      
+
     - name: Run tests
       run: dotnet test 'AlphaTrust.NuGet/AlphaTrust.NuGet.sln' --configuration Release --no-restore --no-build --verbosity normal
+
+    - name: Upload artifact
+    - uses: actions/upload-artifact@v2
+      with:
+        name: 'AlphaTrust.Nuget'
+        path: bin\Release\*.nupkg
