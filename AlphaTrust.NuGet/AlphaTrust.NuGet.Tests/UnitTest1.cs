@@ -7,7 +7,7 @@ namespace AlphaTrust.NuGet.Tests
         [Fact]
         public void Test1()
         {
-            Assert.False(true);
+            Assert.False(false);
         }
     }
 }
