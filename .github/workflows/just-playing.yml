@@ -23,7 +23,7 @@ jobs:
 
       - name: Get build version
         id: version
-        run: echo "::set-output name=build-version::${{ steps.date.outputs.date }}.${{ github.run.id }}"
+        run: echo "::set-output name=build-version::${{ steps.date.outputs.date }}.$GITHUB_RUN_ID"
 
       - name: What's the build version
         run: echo "build-version is ${{ steps.version.outputs.build-version }}"
