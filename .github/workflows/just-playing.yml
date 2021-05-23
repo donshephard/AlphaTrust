@@ -18,19 +18,19 @@ jobs:
 
     steps:
       - name: Get current date
-        id: date
+        id: display-version
         run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
 
       - name: Get build version
         id: version
-        run: echo "::set-output name=build-version::${{ steps.date.outputs.date }}.${{ github.run_number }}"
+        run: echo "::set-output name=build-version::${{ steps.display-version.outputs.date }}.${{ github.run_number }}"
 
       - name: What's the build version
         run: echo "build-version is ${{ steps.version.outputs.build-version }}"
 
       - name: Using Composite
         id: comp
-        uses: donshephard/AlphaTrust/actions/build-version@v1
+        uses: donshephard/AlphaTrust/actions/build-version@v2
         with:
           run_number: ${{ github.run_number }}
 

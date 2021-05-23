@@ -16,12 +16,12 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Get current date
+    - name: Get display version
       id: display-version
       run: echo "::set-output name=display-version::$(date +'%Y.%m.%d')"
       shell: pwsh
 
-    - name: Get build version
+    - name: Get full version
       id: full-version
-      run: echo "::set-output name=full-version::${{ steps.date.outputs.date }}.${{ run_number }}"
+      run: echo "::set-output name=full-version::${{ steps.display-version.outputs.display-version }}.${{ inputs.run_number }}"
       shell: pwsh
