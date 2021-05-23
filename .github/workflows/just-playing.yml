@@ -30,7 +30,7 @@ jobs:
 
       - name: Using Composite
         id: comp
-        uses: actions/build-version@v1
+        uses: donshephard/AlphaTrust/actions/build-version@v1
         with:
           run_number: ${{ github.run_number }}
 
