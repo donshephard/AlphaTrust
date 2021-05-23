@@ -34,7 +34,8 @@ jobs:
         with:
           run_number: ${{ github.run_number }}
 
-      - run: echo "::set-output name=comp-build-version::${{ steps.comp.outputs.version }}"
+      - name: Display version
+        run: echo "display-version is ${{ steps.comp.outputs.display-version }}"
 
-      - name: Show me the version!
-        run: echo "build-version is ${{ steps.comp.outputs.comp-build-version }}"
+      - name: Full version
+        run: echo "full-version is ${{ steps.comp.outputs.full-version }}"
