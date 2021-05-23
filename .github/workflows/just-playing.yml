@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Just Playing
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  just-playing:
+    runs-on: windows-latest
+
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Get build version
+        id: version
+        run: echo "::set-output name=build-version::${{ steps.date.outputs.date }}.$GITHUB_RUN_ID"
+
+      - name: What's the build version
+        run: echo build-version is ${{ steps.version.outputs.build-version }}

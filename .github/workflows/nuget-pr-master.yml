@@ -22,9 +22,6 @@ jobs:
       NUGET_URL: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
 
     steps:
-    - name: Rest
-      run: echo  NUGET_URL is ${{ env.NUGET_URL }}
-
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -32,7 +29,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.5
 
     - name: Add GitHub NuGet Source
-      run: dotnet nuget add source ${{ env.NUGET_URL }} -n github -u ${{ secrets.REGISTRY_USER }}  -p ${{ secrets.REGISTRY_TOKEN }} --store-password-in-clear-text
+      run: dotnet nuget add source ${{ env.NUGET_URL }} -n github -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_TOKEN }} --store-password-in-clear-text
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
@@ -52,4 +49,4 @@ jobs:
       run: dotnet test ${{ env.SOLUTION }} --configuration ${{ env.CONFIG }} --no-restore --no-build --verbosity normal
 
     - name: NuGet Push
-      run: dotnet nuget push ${{ env.FOLDER }}/**/*.nupkg --source ${{ env.NUGET_URL }} --skip-duplicate
+      run: dotnet nuget push ${{ env.FOLDER }}/**/*.nupkg --source "github" --api-key ${{ secrets.REGISTRY_TOKEN }} --skip-duplicate
