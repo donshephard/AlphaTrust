@@ -2,17 +2,26 @@ name: build-version
 description: 'Get the build version for the workflow run.'
 inputs:
   run_number:
+    description: "The run number."
     required: true
 outputs:
-  version:
-    value: ${{ steps.version.outputs.version }}
+  display-version:
+    description: "The display version number (major.minor.feature)."
+    value: ${{ steps.display-version.outputs.display-version }}
+
+  full-version:
+    description: "The full version number (major.minor.feature.build)."
+    value: ${{ steps.full-version.outputs.full-version }}
+
 runs:
   using: "composite"
   steps:
     - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
+      id: display-version
+      run: echo "::set-output name=display-version::$(date +'%Y.%m.%d')"
+      shell: pwsh
 
     - name: Get build version
-      id: version
-      run: echo "::set-output name=version::${{ steps.date.outputs.date }}.${{ run_number }}"
+      id: full-version
+      run: echo "::set-output name=full-version::${{ steps.date.outputs.date }}.${{ run_number }}"
+      shell: pwsh
