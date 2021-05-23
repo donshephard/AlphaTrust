@@ -33,7 +33,8 @@ jobs:
         uses: actions/build-version@v1
         with:
           run_number: ${{ github.run_number }}
-        run: echo "::set-output name=comp-build-version::${{ steps.comp.outputs.version }}"
+
+      - run: echo "::set-output name=comp-build-version::${{ steps.comp.outputs.version }}"
 
       - name: Show me the version!
         run: echo "build-version is ${{ steps.comp.outputs.comp-build-version }}"
